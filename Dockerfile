@@ -8,3 +8,9 @@ RUN apk add --no-cache --update --virtual .build-deps ${PHP_DEPS} \
     && docker-php-ext-enable memcached \
     && apk del .build-deps \
     && rm -rf /var/cache/apk/*
+
+ADD docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
