@@ -1,5 +1,7 @@
 FROM composer
 
+RUN rm -rf /tmp/cache
+
 ENV PHP_DEPS="autoconf gcc make g++ zlib-dev"
 
 RUN apk add --no-cache --update --virtual .build-deps ${PHP_DEPS} \

@@ -2,6 +2,8 @@ FROM composer:1.9
 
 WORKDIR /app
 
+RUN rm -rf /tmp/cache
+
 # Add credentials on build
 ONBUILD ARG SSH_KEY
 RUN mkdir /root/.ssh/ \
